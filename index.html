@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Bank Holiday Calendar</title>
+  <meta name="description"
+    content="Explore public bank holidays for every country in the world, displayed in a beautiful full-year calendar view." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ========== STICKY NAV BAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-brand">
+      <span class="navbar-icon">🌍</span>
+      <div class="navbar-title-group">
+        <span class="navbar-title">Bank Holiday Calendar</span>
+        <span class="navbar-subtitle">Global Public Holidays</span>
+      </div>
+    </div>
+
+    <div class="navbar-controls">
+      <!-- Country Selector -->
+      <div class="control-group" id="country-control">
+        <label for="country-select" class="control-label">Country</label>
+        <div class="select-wrapper">
+          <select id="country-select" aria-label="Select country">
+            <option value="">Loading countries…</option>
+          </select>
+          <span class="select-arrow">▾</span>
+        </div>
+      </div>
+
+      <!-- Year Navigator -->
+      <div class="control-group">
+        <label class="control-label">Year</label>
+        <div class="year-nav">
+          <button id="prev-year" class="year-btn" aria-label="Previous year">‹</button>
+          <span id="year-display" class="year-display">2026</span>
+          <button id="next-year" class="year-btn" aria-label="Next year">›</button>
+        </div>
+      </div>
+
+      <!-- Loading Spinner -->
+      <div id="spinner" class="spinner" aria-label="Loading" hidden>
+        <div class="spinner-ring"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== ERROR BANNER ========== -->
+  <div id="error-banner" class="error-banner" hidden>
+    <span id="error-message"></span>
+    <button id="error-close" aria-label="Close error">✕</button>
+  </div>
+
+  <!-- ========== CALENDAR GRID ========== -->
+  <main class="calendar-wrapper">
+    <div id="calendar-grid" class="calendar-grid"></div>
+  </main>
+
+  <!-- ========== HOLIDAY TOOLTIP ========== -->
+  <div id="holiday-tooltip" class="holiday-tooltip" hidden></div>
+
+  <!-- ========== STATUS BAR ========== -->
+  <footer class="status-bar">
+    <span id="status-text">Initializing…</span>
+    <span class="status-powered">Powered by <a href="https://date.nager.at" target="_blank"
+        rel="noopener">Nager.Date</a></span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
